@@ -20,7 +20,7 @@ function AuthProviderWrapper(props) {
                     setUser(user)
                 })
                 .catch(err => {
-                    console.log(err)
+             
                     setIsLoggedIn(false)
                     setIsLoading(false)
                     setUser(null)

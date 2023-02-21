@@ -84,7 +84,7 @@ const Nav = () => {
                 style={customStyles}
                 ariaHideApp={false}
             >
-                {loginOrSignup === 'login' ? <Login /> : <Signup />}
+                {loginOrSignup === 'login' ? <Login closeModal={closeModal} /> : <Signup closeModal={closeModal} />}
             </Modal>
         </nav>
     );
