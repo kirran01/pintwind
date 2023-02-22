@@ -1,24 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import Preview from '../components/preview';
 import { useState, useEffect } from 'react';
 
-const Home = () => {
-    useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const res = await axios.get(`http://localhost:3000/posts/all`)
-                if (res) {
-                    console.log(res.data, 'rd')
-                }
-            } catch (err) {
-                console.log(err)
-            }
-        }
-        getPosts()
-    }, [])
+const Home = ({ filteredPosts, allPosts, setAllPosts }) => {
     return (
         <div>
             home page
+            {
+                filteredPosts.map(post => {
+                    return (
+                        <Preview key={post._id} post={post} />
+                    )
+                })
+            }
         </div>
     );
 }
