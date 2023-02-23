@@ -61,7 +61,9 @@ const Nav = () => {
                 <div className='flex items-center'>
                     <NotificationsIcon style={{ color: 'gray', fontSize: 30 }} />
                     <ChatBubbleIcon style={{ color: 'gray', fontSize: 30 }} />
+                    <Link to={'/profile'}>
                     <AccountCircleIcon />
+                    </Link>
                     <div className={`animate-rotate duration-500 ease-in`}>
                         <ExpandMoreIcon onClick={handleDropdown} style={{ color: 'gray', fontSize: 30 }} />
                     </div>

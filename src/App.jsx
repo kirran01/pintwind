@@ -37,7 +37,7 @@ function App() {
       <Nav updatePosts={updatePosts} />
       <Routes>
         <Route path='/' element={<Home filteredPosts={filteredPosts} allPosts={allPosts} setAllPosts={setAllPosts} />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/profile' element={<Profile allPosts={allPosts} setAllPosts={setAllPosts} setFilteredPosts={setFilteredPosts} />} />
       </Routes>
     </div>
   )
