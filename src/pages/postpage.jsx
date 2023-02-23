@@ -41,7 +41,7 @@ const Postpage = () => {
                     {thisPost && <img className='rounded-lg' src={thisPost.image} alt="img" />}
                 </div>
                 <div className='px-4'>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between my-4'>
                         <div className='flex items-center'>
                             <MoreHorizIcon />
                             <UploadIcon />
@@ -52,17 +52,17 @@ const Postpage = () => {
                             <button className='p-3 rounded-full bg-red-600 text-white'>Save</button>
                         </div>
                     </div>
-                    {thisPost && <div>
+                    {thisPost && <div className='my-4'>
                         <p className='underline'>{thisPost.link}</p>
                     </div>}
-                    {thisPost && <div>
+                    {thisPost && <div className='mt-2 mb-6'>
                         <p className='text-3xl'>{thisPost.title}</p>
                         <p>{thisPost.description}</p>
                     </div>}
                     <div>
                         <p>comments</p>
                     </div>
-                    <div>
+                    <div className='my-4'>
                         {thisPost &&
                             thisPost.comments.map(c => {
                                 return (
@@ -72,8 +72,10 @@ const Postpage = () => {
                         }
                     </div>
                     <div className='flex'>
-                        <AccountCircleIcon />
-                        <input type="text" placeholder='comment' />
+                        <div className='flex items-center'>
+                            <AccountCircleIcon />
+                        </div>
+                        <input className='h-12 bg-slate-100 w-full rounded-full pl-4' type="text" placeholder='Add a comment' />
                     </div>
                 </div>
             </div>
