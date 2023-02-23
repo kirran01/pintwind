@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Preview = ({ post }) => {
     return (
-        <div>
+        <div className='mb-3'>
             <div>
-                <img src={post.image} alt="img" />
-            </div>
-            <div>
-                <p>{post.title}</p>
+                <Link to={'/post/' + post._id}>
+                    <img className='rounded-lg' src={post.image} alt="img" />
+                </Link>
             </div>
         </div>
     );

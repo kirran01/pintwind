@@ -10,3 +10,7 @@
     transform: rotate(-90deg);
   }
 }
+
+*{
+  outline:1px solid red;
+}

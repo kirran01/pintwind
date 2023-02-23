@@ -38,6 +38,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home filteredPosts={filteredPosts} allPosts={allPosts} setAllPosts={setAllPosts} />} />
         <Route path='/profile' element={<Profile allPosts={allPosts} setAllPosts={setAllPosts} setFilteredPosts={setFilteredPosts} />} />
+        <Route path='/post/:id' element={<Postpage />} />
       </Routes>
     </div>
   )
