@@ -45,12 +45,12 @@ const Nav = () => {
         <nav className='bg-white sticky'>
             <ul className='flex p-2'>
                 <div className='flex items-center shrink-0'>
-                    <li className='min-w-8'>
+                    <Link className='min-w-8' to={'/'}>
                         <img className='h-8' src={PintrestLogo} alt="logo" />
-                    </li>
+                    </Link>
                 </div>
                 <div className='flex'>
-                    <Link className='mx-2'>
+                    <Link className='mx-2' to={'/'}>
                         <button className='bg-black rounded-full text-white p-3'>Home</button>
                     </Link>
                     <Link className='mx-2'>

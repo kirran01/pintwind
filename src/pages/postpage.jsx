@@ -16,7 +16,6 @@ const Postpage = () => {
     const { id } = useParams();
     const [commentInput, setCommentInput] = useState('')
     const [thisPost, setThisPost] = useState(null)
-    console.log(thisPost, 'tp')
     const handleCommentInput = (e) => {
         setCommentInput(e.target.value)
     }
@@ -34,6 +33,26 @@ const Postpage = () => {
         }
         getThisPost()
     }, [])
+    const addComment = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await axios.post(`http://localhost:3000/comments/create-comment/${thisPost._id}`, {
+                comment: commentInput
+            },
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('authToken')}`
+                    }
+                })
+            if (res) {
+                let postWithNewComment = res.data
+                setThisPost(postWithNewComment)
+                setCommentInput('')
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return (
         <div className=''>
             <div className='bg-white shadow-lg rounded-lg flex flex-col'>
@@ -75,7 +94,13 @@ const Postpage = () => {
                         <div className='flex items-center'>
                             <AccountCircleIcon />
                         </div>
-                        <input className='h-12 bg-slate-100 w-full rounded-full pl-4' type="text" placeholder='Add a comment' />
+                        <form className='w-full'>
+                            <input className='h-12 bg-slate-100 w-full rounded-full pl-4' type="text" placeholder='Add a comment' value={commentInput} onChange={handleCommentInput} />
+                            <div className='flex flex-end'>
+                                <button className='p-2' onClick={()=>{setCommentInput('')}}>Cancel</button>
+                                <button className='p-2' onClick={addComment}>Done</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
